@@ -7,10 +7,14 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PATIENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SERVICE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_START;
 
+import java.util.function.Predicate;
+
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.appointments.Appointment;
+import seedu.address.model.person.dentist.Dentist;
+import seedu.address.model.person.patients.Patient;
 
 
 /**
@@ -38,7 +42,8 @@ public class AddAppointmentCommand extends Command {
     public static final String MESSAGE_CLASHING_APPOINTMENTS = "This Appointment clashes with a current one.";
 
     private final Appointment toAdd;
-
+    private final long dentistId;
+    private final long patientId;
     /**
      * Constructs an AddAppointmentCommand with the specified appointment.
      *
@@ -47,6 +52,8 @@ public class AddAppointmentCommand extends Command {
     public AddAppointmentCommand(Appointment appointment) {
         requireNonNull(appointment);
         toAdd = appointment;
+        dentistId = appointment.getDentist();
+        patientId = appointment.getPatient();
     }
 
 
@@ -63,6 +70,27 @@ public class AddAppointmentCommand extends Command {
         if (model.hasAppointment(toAdd)) {
             throw new CommandException(MESSAGE_CLASHING_APPOINTMENTS);
         }
+
+        if (dentistId >= 0) {
+            Predicate<Dentist> dentistIdPredicate = dentist -> dentist.getId() == dentistId;
+            model.updateFilteredDentistList(dentistIdPredicate);
+
+            if (model.getFilteredDentistList().isEmpty()) {
+                throw new CommandException("No dentist with ID " + dentistId);
+            }
+
+        }
+
+        if (patientId >= 0) {
+            Predicate<Patient> patientIdPredicate = patient -> patient.getId() == patientId;
+            model.updateFilteredPatientList(patientIdPredicate);
+
+            if (model.getFilteredPatientList().isEmpty()) {
+                throw new CommandException("No patient with ID " + dentistId);
+            }
+
+        }
+
         model.addAppointment(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
     }
