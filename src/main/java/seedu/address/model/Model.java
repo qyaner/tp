@@ -180,6 +180,8 @@ public interface Model {
 
     void updateFilteredDentistList(NameContainsKeywordsPredicate predicate);
 
+    void updateFilteredAppointmentList(Predicate<Appointment> predicate);
+
     /**
      * Adds the given Treatment. {@code Treatment} must not already exist in the address book.
      */

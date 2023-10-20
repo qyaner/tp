@@ -67,9 +67,6 @@ public class AddAppointmentCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        if (model.hasAppointment(toAdd)) {
-            throw new CommandException(MESSAGE_CLASHING_APPOINTMENTS);
-        }
 
         if (dentistId >= 0) {
             Predicate<Dentist> dentistIdPredicate = dentist -> dentist.getId() == dentistId;
@@ -78,7 +75,6 @@ public class AddAppointmentCommand extends Command {
             if (model.getFilteredDentistList().isEmpty()) {
                 throw new CommandException("No dentist with ID " + dentistId);
             }
-
         }
 
         if (patientId >= 0) {
@@ -88,7 +84,19 @@ public class AddAppointmentCommand extends Command {
             if (model.getFilteredPatientList().isEmpty()) {
                 throw new CommandException("No patient with ID " + dentistId);
             }
+        }
 
+        if (model.hasAppointment(toAdd)) {
+            Predicate<Appointment> appointmentPredicate = toAdd::isSameAppointmentTime;
+            model.updateFilteredAppointmentList(appointmentPredicate);
+
+            if (!model.getFilteredAppointmentList().isEmpty()) {
+                for (int i = 0; i < model.getFilteredAppointmentList().size(); i++) {
+                    if (model.getFilteredAppointmentList().get(i).getDentist() == dentistId) {
+                        throw new CommandException(MESSAGE_CLASHING_APPOINTMENTS);
+                    }
+                }
+            }
         }
 
         model.addAppointment(toAdd);
