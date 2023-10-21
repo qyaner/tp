@@ -33,11 +33,14 @@ public class JsonAdaptedAppointment {
      * @param treatment The treatment provided during the appointment.
      */
     @JsonCreator
-    public JsonAdaptedAppointment(@JsonProperty("dentistId") String dentistId, @JsonProperty("patientId") String patientId,
+    public JsonAdaptedAppointment(@JsonProperty("dentistId") String dentistId,
+                                  @JsonProperty("patientId") String patientId,
                                   @JsonProperty("dentistName") String dentistName,
                                   @JsonProperty("patientName") String patientName,
-                                  @JsonProperty("start") String start, @JsonProperty("duration") String duration,
-                                  @JsonProperty("treatment") String treatment, @JsonProperty("id") String id) {
+                                  @JsonProperty("start") String start,
+                                  @JsonProperty("duration") String duration,
+                                  @JsonProperty("treatment") String treatment,
+                                  @JsonProperty("id") String id) {
         this.dentistId = dentistId;
         this.patientId = patientId;
         this.dentistName = dentistName;

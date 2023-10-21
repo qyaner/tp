@@ -1,9 +1,5 @@
 package seedu.address.model.appointments;
 
-import seedu.address.model.person.Name;
-import seedu.address.model.person.dentist.Dentist;
-import seedu.address.model.person.patients.Patient;
-
 /**
  * Represents an Appointment in ToothTracker.
  */
