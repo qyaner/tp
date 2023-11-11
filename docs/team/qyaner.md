@@ -50,4 +50,4 @@ Given below are my contributions to the project.
     * to be added soon
 
 * **Community**:
-    * Reported bugs and suggestions for other teams in the class ([Link to repo](https://github.com/qyaner/ped)
+    * Reported bugs and suggestions for other teams in the class ([Link to repo](https://github.com/qyaner/ped))
