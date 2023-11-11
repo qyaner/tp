@@ -46,8 +46,5 @@ Given below are my contributions to the project.
           * Added `delete-appointment` activity and sequence diagrams.
         * Added use cases for all appointment features
 
-* **Team-based Tasks**:
-    * to be added soon
-
 * **Community**:
     * Reported bugs and suggestions for other teams in the class ([Link to repo](https://github.com/qyaner/ped))

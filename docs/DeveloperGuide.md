@@ -169,7 +169,7 @@ The `Model` component,
 
 The `Storage` component,
 
-* can save both address book data and user preference data in JSON format, and read them back into corresponding
+* can save both ToothTracker address book data and user preference data in JSON format, and read them back into corresponding
   objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only
   the functionality of only one is needed).
@@ -496,20 +496,6 @@ This is in comparison to allowing commands to fail silently if appointment does 
 - Pros: Prevents invalid operations and provides immediate feedback to the user, helping to correct mistakes.
 - Cons: Additional validation checks add complexity to the code.
 
-#### Listing all Appointments
-
-The `list-appointment` command lists all appointment records saved in ToothTracker.
-
-##### Feature Details
-
-1. Users would key in `list-appointment`.
-2. All appointment records saved in ToothTracker would be displayed in the appointment list area.
-
-##### Feature Considerations
-
-Since `filter-appointment` and `add-appointment` may alter the appointment list displayed, we implemented
-`list-appointment` so that users can view all the appointments saved in ToothTracker.
-
 
 #### Filtering an Appointment
 
@@ -539,6 +525,21 @@ Otherwise, user would receive an error message that guides them to input the rig
 If no appointments with the specific dentist or patient are found in ToothTracker, it should be clearly
 communicated to the user instead of just displaying an empty list. A message stating that no appointments with the
 specified `DENTIST_ID` or `PATIENT_ID` are found would be displayed to the user.
+
+#### Listing all Appointments
+
+The `list-appointment` command lists all appointment records saved in ToothTracker.
+
+##### Feature Details
+
+1. Users would key in `list-appointment`.
+2. All appointment records saved in ToothTracker would be displayed in the appointment list area.
+
+##### Feature Considerations
+
+Since `filter-appointment` and `add-appointment` may alter the appointment list displayed, we implemented
+`list-appointment` so that users can view all the appointments saved in ToothTracker.
+
 
 ### Treatment Features
 
@@ -642,7 +643,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified
+(For all use cases below, the **System** is the `ToothTracker` and the **Actor** is the `user`, unless specified
 otherwise)
 
 ---
