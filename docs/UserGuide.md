@@ -566,22 +566,23 @@ This edits the name of the patient with `PATIENT_ID` 2 to 'Alex'.
 
 #### Adding an appointment : `add-appointment`
 
-Adds a dental appointment to ToothTracker. This is useful when:
-* you want to schedule future dental appointments for patients with specific dentists at designated times.
-* you want to check for clashes with existing appointments.
-* you want to add in past appointments for record keeping.
+Adds a dental appointment to ToothTracker. This is useful when you:
+* need to schedule future dental appointments for patients with specific dentists at designated times.
+* want to check for clashes with existing appointments.
+* want to add in past appointments for record keeping.
 
 **Format:** `add-appointment dentist/DENTIST_ID patient/PATIENT_ID start/START_DATE_TIME tr/TREATMENT`
 
+
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes about adding Appointments:**<br>
-    <ul>
-        <li>ToothTracker will not allow the addition of appointments that clashes with existing appointments
+**:information_source: Notes about adding Appointments**<br>
+  <ul>
+    <li>ToothTracker will not allow the addition of appointments that clashes with existing appointments
                 with the same dentist or patient.</li>
-        <li>ToothTracker only allows for the addition of appointments from the year 2000 and onwards.</li>
-        <li>When adding an appointment, the list of appointments shown may get filtered, resulting in the new appointment not showing up in the appointment list.
+    <li>ToothTracker only allows for the addition of appointments from the year 2000 and onwards.</li>
+    <li>When adding an appointment, the list of appointments shown may get filtered, resulting in the new appointment not showing up in the appointment list.
                 Please use `list-appointment` if you want the new appointment to show up.</li>
-    </ul>
+  </ul>
 </div>
 
 **Example:**
@@ -593,9 +594,9 @@ The duration of the appointment is automatically set based on the selected treat
 
 #### Listing all appointments : `list-appointment`
 
-Shows a list of all appointments in ToothTracker. This is useful when:
-* you want to retrieve the information of all appointments.
-* you want to verify that the appointment is added to ToothTracker.
+Shows a list of all appointments in ToothTracker. This is useful when you:
+* want to retrieve the information of all appointments.
+* want to verify that the appointment is added to ToothTracker.
 
 **Format:** `list-appointment` (No extra parameters required)
 ![list-appointment-example](images/ug/appointment/ListAppointmentExample.png){: .centered-image }
@@ -627,8 +628,8 @@ This deletes the appointment with `APPOINTMENT_ID` 2 from ToothTracker.
 
 Narrows down your search for appointments by filtering the appointment list to
 show the list of appointments under the dentist with the specified `DENTIST_ID`.
-This is useful when:
-* you want to view the list of appointments under a specific dentist.
+This is useful when you:
+* want to view the list of appointments under a specific dentist.
 
 **Format:** `filter-appointment dentist DENTIST_ID`
 
@@ -647,8 +648,8 @@ This gives you all appointments under the dentist with `DENTIST_ID` 1.
 
 Narrows down your search for appointments by filtering the appointment list to
 show the list of appointments under the patient with the specified `PATIENT_ID`.
-This is useful when:
-* you want to view the list of appointments under a specific patient.
+This is useful when you:
+* want to view the list of appointments under a specific patient.
 
 **Format:** `filter-appointment patient PATIENT_ID`
 
