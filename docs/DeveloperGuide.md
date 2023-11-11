@@ -458,6 +458,9 @@ If a timing clash is found, an error message informs the user.
 For the dentist ID, patient ID and treatment field, it is mandatory that the specified dentist, patient and treatment exists in ToothTracker.
 If these conditions are not met, the user will receive an error message.
 
+After adding an appointment, the details of the appointment can no longer be changed even if the details of the dentist,
+patient or treatment are changed as we did not implement cascading. 
+
 #### Deleting an Appointment
 
 The `delete-appointment` command deletes an appointment record from ToothTracker.
@@ -600,16 +603,19 @@ Front Desk Dental Clinic Administrative Staff who
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​      | I want to …​                                                      | So that I can…​                                 |
-|----------|--------------|-------------------------------------------------------------------|-------------------------------------------------|
-| `* * *`  | receptionist | create new patient profiles by entering their name, address, etc. | i can maintain patient records                  |
-| `* * *`  | receptionist | create a new dentist profile                                      | maintain dentist records                        |
-| `* * *`  | receptionist | delete a patient/dentist                                          | remove people who are no longer with the clinic |
-| `* * *`  | receptionist | list all patients/dentists                                        | find out the total number of patients/dentists  |
-| `* * *`  | receptionist | edit a dentist/patient profile                                    | keep my records up to date                      |
-| `* * *`  | receptionist | search for patients by name or ID                                 | i have quick access to patient profiles         |
-| `* * *`  | receptionist | search for dentists by name or ID                                 | i have quick access to dentist profiles         |
-| `* *`    | receptionist | view costs of various dental treatments                           | tell customers the price of a dental treatment  |
+| Priority | As a …​      | I want to …​                                                      | So that I can…​                                                                |
+|----------|--------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `* * *`  | receptionist | create new patient profiles by entering their name, address, etc. | i can maintain patient records                                                 |
+| `* * *`  | receptionist | create a new dentist profile                                      | maintain dentist records                                                       |
+| `* * *`  | receptionist | delete a patient/dentist                                          | remove people who are no longer with the clinic                                |
+| `* * *`  | receptionist | list all patients/dentists                                        | find out the total number of patients/dentists                                 |
+| `* * *`  | receptionist | edit a dentist/patient profile                                    | keep my records up to date                                                     |
+| `* * *`  | receptionist | search for patients by name or ID                                 | i have quick access to patient profiles                                        |
+| `* * *`  | receptionist | search for dentists by name or ID                                 | i have quick access to dentist profiles                                        |
+| `* * *`  | receptionist | create new appointment records                                    | keep track of past and future appointments                                     |
+| `* * *`  | receptionist | delete appointment records                                        | remove irrelevant appointments                                                 |
+| `* * *`  | receptionist | list all appointment records                                      | view all the clinic's appointments                                             |
+| `* * *`  | receptionist | filter appointment by dentist or patient                          | i have quick access to appointments related to the specific dentist or patient |
 
 *{More to be added}*
 
