@@ -458,8 +458,15 @@ If a timing clash is found, an error message informs the user.
 For the dentist ID, patient ID and treatment field, it is mandatory that the specified dentist, patient and treatment exists in ToothTracker.
 If these conditions are not met, the user will receive an error message.
 
+Users should call `list-appointment` first before adding an appointment due to the way `add-appointment` is implemented.
+When adding an appointment, the list of appointments might get filtered if the new appointment clashes with existing
+ones due to the check for clashes. The filtered list will remain until `list-appointment` is called.
+Thus, if a new appointment is immediately added after this, the new appointment may not show up on the list of
+appointments in the UI. Users would have to call `list-appointment` to view the newly added appointment on the list.
+
 After adding an appointment, the details of the appointment can no longer be changed even if the details of the dentist,
-patient or treatment are changed as we did not implement cascading. 
+patient or treatment are changed as we did not implement cascading. Users would have to delete the appointment and add
+a new one if they wish to change the details of the appointment.
 
 #### Deleting an Appointment
 
@@ -488,6 +495,20 @@ This is in comparison to allowing commands to fail silently if appointment does 
 
 - Pros: Prevents invalid operations and provides immediate feedback to the user, helping to correct mistakes.
 - Cons: Additional validation checks add complexity to the code.
+
+#### Listing all Appointments
+
+The `list-appointment` command lists all appointment records saved in ToothTracker.
+
+##### Feature Details
+
+1. Users would key in `list-appointment`.
+2. All appointment records saved in ToothTracker would be displayed in the appointment list area.
+
+##### Feature Considerations
+
+Since `filter-appointment` and `add-appointment` may alter the appointment list displayed, we implemented
+`list-appointment` so that users can view all the appointments saved in ToothTracker.
 
 
 #### Filtering an Appointment
