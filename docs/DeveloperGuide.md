@@ -670,6 +670,27 @@ Users can quickly access and reuse previously entered commands, reducing the nee
 2. **User-Friendly Interaction:**
 Enhances the overall user experience by providing a familiar and intuitive command history navigation, similar to other CLI interfaces.
 
+### Appointment Enhancement
+
+#### Overview
+Currently, if the dentist, patient or treatment related to the appointment is edited or deleted, the appointment details would not change and would remain the same as when it is first added.
+Thus, to counter this, we aim to implement a cascade update mechanism that automatically updates appointment details when related entities (dentist, patient, or treatment) are edited or deleted.
+
+#### Key Features
+1. **Dentist Update Handling**
+   - When a dentist's information is updated (e.g., name, contact details), the cascade update should automatically propagate these changes to all appointments associated with that dentist.
+   - When a dentist leaves the clinic and his records are deleted, all future appointments associated with the dentist would be deleted. (Past appointments can be kept for record keeping)
+
+2. **Patient Update Handling**
+   - When a patient's information is updated (e.g., name, contact details), the cascade update should automatically propagate these changes to all appointments associated with that patient.
+   - When a patient leaves the clinic and his records are deleted, all future appointments associated with the patient would be deleted. (Past appointments can be kept for record keeping)
+
+3. **Treatment Update Handling**
+    - If there are changes to a treatment (e.g., duration, cost), the cascade update should automatically propagate these changes to all appointments associated with that treatment.
+    - If the treatment is deleted, all future appointments associated with the treatment would be deleted. (Past appointments can be kept for record keeping)
+
+
+
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
